@@ -22,6 +22,8 @@ var app = module.exports = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 //app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
+app.engine('.html', require('ejs').renderFile);
 app.use(morgan('dev'));
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
